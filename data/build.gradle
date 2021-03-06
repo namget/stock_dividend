@@ -1,7 +1,8 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+
 }
 
 android {
@@ -9,13 +10,13 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.namget.stock.know.dividend"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -39,21 +40,18 @@ dependencies {
     implementation "androidx.core:core-ktx:$versions.core_ktx_verison"
     implementation "androidx.appcompat:appcompat:$versions.appcompat_verison"
     implementation "com.google.android.material:material:$versions.material_verison"
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout_version"
-    implementation "androidx.navigation:navigation-fragment:$versions.navigation_verison"
-    implementation "androidx.navigation:navigation-ui:$versions.navigation_verison"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle_version"
-    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation_verison"
-    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation_verison"
 
     implementation "com.google.dagger:dagger:$versions.dagger_version"
     kapt "com.google.dagger:dagger-compiler:$versions.dagger_version"
 
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:$versions.okhttp_bom_version"))
+    implementation "com.squareup.okhttp3:okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor"
+
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine_version"
 
 
-    implementation project(path: ':domain')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation "androidx.test.ext:junit:$versions.test_ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.test_espresso_version"

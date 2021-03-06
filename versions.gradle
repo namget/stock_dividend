@@ -1,0 +1,17 @@
+ext.versions = [:]
+def versions = [:]
+versions.dagger_version = '2.28'
+versions.kotlin_version = '1.4.30'
+versions.core_ktx_verison = '1.2.0'
+versions.appcompat_verison = '1.1.0'
+versions.material_verison = '1.1.0'
+versions.constraintlayout_version = '1.1.3'
+versions.navigation_verison = '2.3.3'
+versions.lifecycle_version = '2.2.0'
+versions.test_ext_junit_version = '1.1.1'
+versions.test_espresso_version = '1.1.1'
+versions.okhttp_bom_version = '4.9.0'
+versions.retrofit_version = '2.9.0'
+versions.coroutine_version = '1.4.3'
+
+ext.versions = versions
