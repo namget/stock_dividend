@@ -16,9 +16,19 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        def secureProps = new Properties()
+        if(file("../secure/gradle.properties").exists()){
+            file("../secure/gradle.properties")?.withInputStream { secureProps.load(it) }
+        }
+        resValue("string" , "data_api_key" , (secureProps.getProperty("api_key")))
+
     }
 
     buildTypes {
+
+        debug {
+
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
