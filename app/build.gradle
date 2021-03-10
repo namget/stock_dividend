@@ -5,22 +5,22 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.namget.stock.know.dividend"
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         def secureProps = new Properties()
-        if(file("../secure/gradle.properties").exists()){
+        if (file("../secure/gradle.properties").exists()) {
             file("../secure/gradle.properties")?.withInputStream { secureProps.load(it) }
         }
-        resValue("string" , "data_api_key" , (secureProps.getProperty("api_key")))
+        resValue("string", "data_api_key", (secureProps.getProperty("api_key")))
 
     }
 
@@ -50,17 +50,28 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$versions.appcompat_verison"
     implementation "com.google.android.material:material:$versions.material_verison"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout_version"
-    implementation "androidx.navigation:navigation-fragment:$versions.navigation_verison"
-    implementation "androidx.navigation:navigation-ui:$versions.navigation_verison"
+
+    //aac
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle_version"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment:$versions.navigation_verison"
+    implementation "androidx.navigation:navigation-ui:$versions.navigation_verison"
     implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation_verison"
     implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation_verison"
 
+    //dagger
     implementation "com.google.dagger:dagger:$versions.dagger_version"
     kapt "com.google.dagger:dagger-compiler:$versions.dagger_version"
 
+    //coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine_version"
+
+    // Add the Firebase SDK for Crashlytics. ads
+//  implementation "com.google.firebase:firebase-crashlytics:${crashVersion}"
+//  implementation "com.google.firebase:firebase-ads:${adVersion}"
+//  implementation "com.google.android.gms:play-services-ads:${googleAdVersion}"
 
 
     implementation project(path: ':domain')

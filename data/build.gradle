@@ -41,15 +41,27 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$versions.appcompat_verison"
     implementation "com.google.android.material:material:$versions.material_verison"
 
+    //dagger
     implementation "com.google.dagger:dagger:$versions.dagger_version"
     kapt "com.google.dagger:dagger-compiler:$versions.dagger_version"
 
+    //okhttp3
     implementation(platform("com.squareup.okhttp3:okhttp-bom:$versions.okhttp_bom_version"))
     implementation "com.squareup.okhttp3:okhttp"
     implementation "com.squareup.okhttp3:logging-interceptor"
 
+    //retrofit
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine_version"
+
+    //room
+    implementation "androidx.room:room-runtime:$versions.room_version"
+    kapt "androidx.room:room-compiler:$versions.room_version"
+    // For Kotlin use kapt instead of annotationProcessor
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$versions.room_version"
+    testImplementation "androidx.room:room-testing:$versions.room_version"
 
 
     testImplementation 'junit:junit:4.+'

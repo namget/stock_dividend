@@ -13,4 +13,7 @@ class StockRepositoryImpl @Inject constructor(
     val stockLocalDataSource: StockDataSource
 ) : StockRepository {
 
+    override fun getStockDividendInfo() {
+        TODO("Not yet implemented")
+    }
 }
