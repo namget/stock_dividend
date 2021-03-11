@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitBuilder {
 
-    fun setHeadInterceptor(): Interceptor =
+    private fun setHeadInterceptor(): Interceptor =
         Interceptor {
             val original = it.request()
             val request = original.newBuilder()
@@ -31,10 +31,10 @@ class RetrofitBuilder {
     }
 
 
-    fun getGsonBuilder(): Gson = GsonBuilder().setLenient().create()
+    private fun getGsonBuilder(): Gson = GsonBuilder().setLenient().create()
 
 
-    fun setOkhttp(): OkHttpClient =
+    private fun setOkhttp(): OkHttpClient =
         OkHttpClient.Builder().addInterceptor(setHeadInterceptor())
             .addInterceptor(getHttpInterceptor())
             .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
@@ -43,18 +43,14 @@ class RetrofitBuilder {
             .build()
 
 
-    fun getRetrofit(): Retrofit =
+    private fun getRetrofit(): Retrofit =
         Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(getGsonBuilder()))
             .client(setOkhttp())
             .baseUrl(BASE_URL)
             .build()
 
-
-    fun <T : Class<T>> create(clazz: T) {
-        getRetrofit().create(clazz)
-    }
-
+    fun <T> create(clazz: Class<T>) : T = getRetrofit().create(clazz)
 
     companion object {
         private const val TIMEOUT = 3L
