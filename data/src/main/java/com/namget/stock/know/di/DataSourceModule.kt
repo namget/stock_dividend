@@ -1,8 +1,8 @@
 package com.namget.stock.know.di
 
 import com.namget.stock.know.datasource.StockDataSource
-import com.namget.stock.know.datasource.StockLocalDataSource
-import com.namget.stock.know.datasource.StockRemoteDataSource
+import com.namget.stock.know.datasource.local.StockLocalDataSource
+import com.namget.stock.know.datasource.remote.StockRemoteDataSource
 import dagger.Binds
 import dagger.Module
 

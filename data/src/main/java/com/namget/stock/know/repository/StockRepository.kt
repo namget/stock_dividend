@@ -1,6 +1,7 @@
 package com.namget.stock.know.repository
 
-interface StockRepository {
+import com.namget.stock.know.data.resp.DividendResp
 
-    fun getStockDividendInfo()
+interface StockRepository {
+    suspend fun getStockDividendInfo(name : String): List<DividendResp>
 }

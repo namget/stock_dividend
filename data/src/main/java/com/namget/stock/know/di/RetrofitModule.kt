@@ -1,7 +1,7 @@
 package com.namget.stock.know.di
 
 import com.namget.stock.know.repository.RetrofitBuilder
-import com.namget.stock.know.repository.StockService
+import com.namget.stock.know.repository.StockApiService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -11,8 +11,8 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideStockService() : StockService{
+    fun provideStockService() : StockApiService{
         val retrofitBuilder = RetrofitBuilder()
-        return retrofitBuilder.create(StockService::class.java)
+        return retrofitBuilder.create(StockApiService::class.java)
     }
 }
