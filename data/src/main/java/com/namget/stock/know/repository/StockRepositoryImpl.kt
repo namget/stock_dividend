@@ -1,10 +1,9 @@
 package com.namget.stock.know.repository
 
-import com.namget.stock.know.data.req.DividendReq
 import com.namget.stock.know.data.resp.DividendResp
-import com.namget.stock.know.datasource.StockDataSource
 import com.namget.stock.know.di.LocalDataSource
 import com.namget.stock.know.di.RemoteDataSource
+import com.namget.stock.know.domain.datasource.StockDataSource
 import com.namget.stock.know.util.ResponseResult
 import javax.inject.Inject
 

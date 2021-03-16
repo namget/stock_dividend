@@ -63,7 +63,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$versions.room_version"
     testImplementation "androidx.room:room-testing:$versions.room_version"
 
-
+    implementation project(path: ':domain')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation "androidx.test.ext:junit:$versions.test_ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.test_espresso_version"

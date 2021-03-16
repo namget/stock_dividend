@@ -46,7 +46,6 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine_version"
 
-    implementation project(path: ':data')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation "androidx.test.ext:junit:$versions.test_ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.test_espresso_version"

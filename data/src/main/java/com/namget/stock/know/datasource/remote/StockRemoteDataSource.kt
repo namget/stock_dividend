@@ -3,8 +3,8 @@ package com.namget.stock.know.datasource.remote
 import com.namget.stock.know.data.req.DividendReq
 import com.namget.stock.know.data.resp.DividendResp
 import com.namget.stock.know.data.resp.Response
-import com.namget.stock.know.datasource.StockDataSource
 import com.namget.stock.know.di.RemoteDataSource
+import com.namget.stock.know.domain.datasource.StockDataSource
 import com.namget.stock.know.repository.StockApiService
 import com.namget.stock.know.util.ResponseResult
 import com.namget.stock.know.util.safeApiCall

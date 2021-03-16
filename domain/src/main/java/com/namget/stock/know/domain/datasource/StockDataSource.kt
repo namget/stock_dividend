@@ -1,4 +1,4 @@
-package com.namget.stock.know.datasource
+package com.namget.stock.know.domain.datasource
 
 import com.namget.stock.know.data.resp.DividendResp
 
